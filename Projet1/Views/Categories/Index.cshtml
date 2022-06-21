@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Projet1.Models.Categorie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div id="view-all">
+    @await Html.PartialAsync("_ViewAll", Model)
+</div>

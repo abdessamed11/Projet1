@@ -1,0 +1,39 @@
+﻿@model Projet1.ViwModels.CategoriesViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="AddorEdit" onsubmit="return jQueryAjaxPost(this);" autocomplete="off">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span  asp-validation-for="Name" class="input-group-text" id="inputGroup-sizing-default">Name</span>
+              </div>
+              <input asp-for="Name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="form-group">
+                    <label asp-for="Picture" class="control-label"></label>
+                    <div class="custom-file">
+                        <input asp-for="Picture" class="custom-file-input" />
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <span asp-validation-for="Picture" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
